@@ -1,0 +1,96 @@
+LIVRO-CAIXA PESSOAL — versão local (offline)
+=============================================
+
+O que é
+- Aplicativo de receitas e despesas que roda no navegador, sem login e sem servidor de dados.
+- Os dados ficam SOMENTE no aparelho em que você os lançou (armazenamento local do navegador).
+- Funciona offline depois da primeira abertura (no modo instalado pelo celular).
+
+Arquivos
+- index.html ............ o aplicativo
+- sw.js ................. permite uso offline quando instalado no celular
+- manifest.webmanifest .. permite "instalar" como app
+- icon*.png / icon.svg .. ícones
+
+-------------------------------------------------------------
+1) NO COMPUTADOR (Windows, Mac ou Linux)
+-------------------------------------------------------------
+1. Extraia o .zip numa pasta fixa (ex.: Documentos\Livro-Caixa).
+2. Dê dois cliques em index.html (Chrome ou Edge recomendados).
+3. Opcional: crie um atalho/favorito para esse arquivo.
+
+Cuidados:
+- Não mova nem renomeie a pasta depois de começar a usar. O navegador associa
+  os dados ao endereço do arquivo; mudando o endereço, o app abre "em branco".
+  Se isso acontecer, volte a pasta ao lugar original ou restaure o backup.
+- Use sempre o mesmo navegador. Chrome e Edge guardam dados separados.
+- Sem internet, a página usa fontes do sistema. Os dados não são afetados.
+
+-------------------------------------------------------------
+2) NO CELULAR (Android ou iPhone)
+-------------------------------------------------------------
+O celular não executa bem um .html aberto direto do gerenciador de arquivos.
+O caminho confiável é hospedar esta pasta UMA VEZ num endereço https gratuito
+e instalar o app a partir dele. A hospedagem guarda apenas o código; seus
+lançamentos continuam só no celular e nunca são enviados ao servidor.
+
+Opção GitHub Pages (gratuita):
+1. Crie uma conta em github.com e um repositório novo (ex.: livro-caixa).
+2. Envie todos os arquivos desta pasta para o repositório (botão "Add file" >
+   "Upload files").
+3. Em Settings > Pages, escolha a branch "main" e a pasta "/ (root)". Salve.
+4. Em alguns minutos o endereço aparece ali (ex.: https://SEU-USUARIO.github.io/livro-caixa/).
+   Serviços como Netlify ou Cloudflare Pages também aceitam a pasta arrastada.
+
+Instalar no celular:
+- Android (Chrome): abra o endereço > menu (⋮) > "Instalar app" ou
+  "Adicionar à tela inicial".
+- iPhone (Safari): abra o endereço > botão Compartilhar > "Adicionar à Tela de Início".
+- Abra pelo ícone criado. A partir daí funciona offline.
+
+Atenção no iPhone: o app instalado na Tela de Início guarda dados separados
+do Safari. Lance sempre pelo ícone.
+
+-------------------------------------------------------------
+3) PC E CELULAR NÃO SINCRONIZAM SOZINHOS
+-------------------------------------------------------------
+Cada aparelho tem a sua base. Para levar os dados de um para o outro:
+Ajustes > "Baixar backup (JSON)" no aparelho de origem > envie o arquivo para
+o outro aparelho > Ajustes > "Restaurar backup" (marque "Substituir tudo" se
+quiser que fique idêntico).
+O backup da versão anterior (a página no Claude) tem o mesmo formato e pode
+ser restaurado aqui.
+
+-------------------------------------------------------------
+4) RELATÓRIO MENSAL
+-------------------------------------------------------------
+Aba "Relatório" > escolha o mês pelas setas do topo >
+- "Imprimir / salvar PDF": na janela de impressão, escolha "Salvar como PDF".
+- "Baixar relatório": gera um arquivo .html do relatório, que abre em qualquer
+  navegador e pode ser enviado por e-mail/WhatsApp ou impresso depois.
+No iPhone com o app instalado, se o botão de imprimir não abrir nada, use
+"Baixar relatório" e imprima/compartilhe a partir do arquivo.
+
+Conteúdo: resumo (recebido/a receber, pago/a pagar, saldo, acumulado no ano),
+comparativo com o mês anterior, despesas por categoria x orçamento, receitas
+por categoria, despesas por conta/meio (ex.: total do cartão), pendências e
+vencidos, compromissos dos próximos 6 meses, parcelamentos em andamento com
+saldo a pagar, e a lista completa de lançamentos.
+
+-------------------------------------------------------------
+5) SEGURANÇA
+-------------------------------------------------------------
+- Ajustes > Segurança > "Ativar proteção por senha": os dados passam a ser
+  gravados criptografados (AES-256-GCM, chave derivada da senha por
+  PBKDF2-SHA256 com 310.000 iterações). O app pede a senha ao abrir.
+- NÃO existe recuperação de senha. Esqueceu = dados ilegíveis. Mantenha backup.
+- O arquivo de backup (JSON) NÃO é criptografado: guarde-o em local seguro.
+- Limpar os dados do navegador/site apaga os lançamentos. Faça backup periódico.
+
+-------------------------------------------------------------
+6) PARCELAMENTO NO CARTÃO
+-------------------------------------------------------------
+Novo lançamento > Despesa > Valor = TOTAL da compra > Vencimento = data da
+1ª fatura > Conta = Cartão de crédito > Repetir/parcelas = Nx > Como repetir =
+"Dividir o total em parcelas". O app mostra a prévia (ex.: 10x de R$ 300,00)
+antes de salvar e cria todas as parcelas, identificadas como 1/10, 2/10...
